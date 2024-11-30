@@ -1,0 +1,138 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1.marquee-title {
+  margin: 1rem 0;
+}
+
+footer.footer {
+  background-color: #f0f0f0;
+  padding: 1rem 0;
+  text-align: center;
+  position: static;
+  width: 100%;
+}
+
+/* Bar Graph Styles */
+#bar-container {
+  display: flex;
+  width: 75%;
+  height: 30px;
+  margin: 0 auto 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+}
+
+#left-bar,
+#right-bar {
+  height: 100%;
+  position: relative;
+  transition: width 0.5s ease;
+}
+
+#left-bar {
+  background-color: red;
+  text-align: left;
+  padding-left: 5px;
+}
+
+#right-bar {
+  background-color: blue;
+  text-align: right;
+  padding-right: 5px;
+}
+
+#left-percentage,
+#right-percentage {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+}
+
+/* Posts Section */
+#posts-container {
+  display: flex;
+  width: 75%;
+  height: 75vh;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.posts-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.posts-column h2 {
+  margin: 0.5rem 0;
+}
+
+.posts-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+#left-posts {
+  background-color: #ffecec;
+}
+
+#right-posts {
+  background-color: #e6f2ff;
+}
+
+.post {
+  background: #fff;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.post .meta {
+  font-size: 0.8rem;
+  color: gray;
+  margin-bottom: 0.3rem;
+}
+
+.post .content {
+  font-size: 1rem;
+}
+
+.left-highlight {
+  color: red;
+  font-weight: bold;
+}
+
+.right-highlight {
+  color: blue;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
