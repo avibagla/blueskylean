@@ -7,7 +7,7 @@
   /* Lighter shade for left background */
   --right-color-light: #ffecec;
   /* Lighter shade for right background */
-  --seesaw-color: #ddd;
+  --seesaw-color: #C2CAE8;
   /* Color for the seesaw plank and fulcrum */
   --weight-color: #888;
   /* Color for weights */
@@ -26,16 +26,16 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-    font-family: "Work Sans", serif;
-      font-optical-sizing: auto;
-      font-style: normal;
-      
+  font-family: "Work Sans", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
 }
 
 h1.marquee-title {
   font-family: "Parkinsans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
+  font-optical-sizing: auto;
+  font-style: normal;
   margin: 1rem 0 0.5rem;
 }
 
@@ -49,8 +49,8 @@ h2.subtitle {
   font-weight: normal;
   color: #555;
   font-family: "Parkinsans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 
@@ -112,7 +112,8 @@ h2.subtitle {
 
 #seesaw {
   width: 350px;
-  height: 10px;;
+  height: 10px;
+  ;
   background-color: var(--seesaw-color);
   /* Seesaw plank */
   position: relative;
@@ -163,7 +164,7 @@ h2.subtitle {
 
 #seesaw-fulcrum {
   width: 90px;
-    height: 50%;
+  height: 50%;
   background-color: var(--seesaw-color);
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   position: absolute;
@@ -173,15 +174,19 @@ h2.subtitle {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 100px 6px rgba(0, 0, 0, 1);
+  /* Add shadow */
 }
 
 #seesaw-fulcrum img {
   width: 25%;
-  padding-top: 10px;;
+  padding-top: 10px;
+  ;
   /* Scale down the logo to fit */
   height: auto;
   /* Maintain aspect ratio */
 }
+
 
 
 
@@ -224,7 +229,7 @@ h2.subtitle {
 
 #right-posts {
   background-color: var(--right-color-light, #e6f2ff);
-    text-align: right;
+  text-align: right;
 }
 
 .left-highlight {
@@ -238,6 +243,7 @@ h2.subtitle {
 }
 
 .post {
+
   background: #fff;
   margin: 0.5rem 0;
   padding: 0.5rem;
@@ -245,6 +251,13 @@ h2.subtitle {
   border: 1px solid #ddd;
   word-wrap: break-word;
   /* Wrap long text */
+}
+
+.post {
+  opacity: 0;
+  /* Start hidden */
+  animation: fadeIn 0.5s ease forwards;
+  /* Apply fade-in animation */
 }
 
 .post .meta {
@@ -264,6 +277,12 @@ h2.subtitle {
 
 /* Animations */
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    /* Slide up a little */
+  }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -316,29 +335,50 @@ h2.subtitle {
 @media screen and (max-width: 480px) {
   /* body {
     font-size: 14px;
+  } */
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2.subtitle {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: .8rem;
   }
 
   #bar-container {
-    height: 15px;
+    height: 40px;
   }
 
   #seesaw {
-    width: 200px;
+    width: 300px;
     height: 8px;
   }
 
   #left-weight,
   #right-weight {
-    width: 25px;
-    height: 25px;
-    font-size: 0.8rem;
+
+    font-size: 1.3rem;
   }
 
-  #posts-container {
+  /* #posts-container {
     height: 30%;
+  } */
+
+  .post .content {
+    font-size: 0.6rem;
   }
 
-  .post {
-    font-size: 0.75rem;
-  } */
+  .post .meta {
+    font-size: 0.5rem;
+    color: gray;
+    margin-bottom: 0.3rem;
+  }
+
+  .posts-column h2{
+    font-size: 1.3em;
+  }
+
+
 }
