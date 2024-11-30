@@ -367,7 +367,7 @@ h2.subtitle {
   } */
 
   .post .content {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .post .meta {
@@ -379,6 +379,13 @@ h2.subtitle {
   .posts-column h2{
     font-size: 1.3em;
   }
+
+    #posts-container {
+      display: flex;
+      width: 95%;
+
+    }
+  
 
 
 }
