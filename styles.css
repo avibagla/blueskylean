@@ -1,7 +1,7 @@
 :root {
-  --left-color: blue;
+  --left-color: #006BA6;
   /* Main color for "left" */
-  --right-color: red;
+  --right-color: #D81159;
   /* Main color for "right" */
   --left-color-light: #e6f2ff;
   /* Lighter shade for left background */
@@ -12,6 +12,7 @@
   --weight-color: #888;
   /* Color for weights */
   --text-color: white;
+  --background-color: #2C2C34;
   /* Text color inside weights */
 }
 
@@ -28,6 +29,7 @@ body {
     font-family: "Work Sans", serif;
       font-optical-sizing: auto;
       font-style: normal;
+      
 }
 
 h1.marquee-title {
@@ -51,13 +53,6 @@ h2.subtitle {
     font-style: normal;
 }
 
-footer.footer {
-  background-color: #f0f0f0;
-  padding: 1rem 0;
-  text-align: center;
-  position: static;
-  width: 100%;
-}
 
 /* Bar Graph Styles */
 #bar-container {
@@ -145,10 +140,12 @@ footer.footer {
 
 #left-weight {
   left: 50px;
+  background-color: var(--left-color);
 }
 
 #right-weight {
   right: 50px;
+  background-color: var(--right-color);
 }
 
 #seesaw-fulcrum {
@@ -222,10 +219,12 @@ footer.footer {
 
 #left-posts {
   background-color: var(--left-color-light, #ffecec);
+  text-align: left;
 }
 
 #right-posts {
   background-color: var(--right-color-light, #e6f2ff);
+    text-align: right;
 }
 
 .left-highlight {
@@ -271,6 +270,44 @@ footer.footer {
   }
 }
 
+.footer {
+  background-color: #f0f0f0;
+  padding: 0.5rem 0;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #0077cc;
+  font-style: italic;
+  /* Link color */
+}
+
+.footer #made-by-name:hover {
+  background: #333;
+  color: #ddd;
+}
+
+.footer a {
+  transition: 200ms;
+}
+
+.bsky-logo {
+  width: 20px;
+  /* Adjust the size of the logo */
+  height: 70%;
+  margin-left: 5px;
+  vertical-align: middle;
+  /* Aligns the logo with the text */
+}
 
 
 

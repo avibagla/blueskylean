@@ -54,8 +54,8 @@ function updateBarGraph() {
   leftBar.style.width = `${leftPercent}%`;
   rightBar.style.width = `${rightPercent}%`;
 
-  leftPercentageText.textContent = `${Math.round(leftPercent)}%`;
-  rightPercentageText.textContent = `${Math.round(rightPercent)}%`;
+  leftPercentageText.textContent = `${leftPercent.toFixed(2)}%`;
+  rightPercentageText.textContent = `${rightPercent.toFixed(2)}%`;
 }
 
 // Add a post to the correct column
