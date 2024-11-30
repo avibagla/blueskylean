@@ -1,3 +1,22 @@
+:root {
+  --left-color: red;
+  /* Main color for "left" */
+  --right-color: blue;
+  /* Main color for "right" */
+  --left-color-light: #ffecec;
+  /* Lighter shade for left background */
+  --right-color-light: #e6f2ff;
+  /* Lighter shade for right background */
+  --seesaw-color: #444;
+  /* Color for the seesaw plank and fulcrum */
+  --weight-color: #888;
+  /* Color for weights */
+  --text-color: white;
+  /* Text color inside weights */
+}
+
+
+
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
@@ -6,11 +25,27 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+    font-family: "Work Sans", serif;
+      font-optical-sizing: auto;
+      font-style: normal;
 }
 
 h1.marquee-title {
-  margin: 1rem 0;
+  font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  margin: 1rem 0 0.5rem;
+}
+
+h2.subtitle {
+  font-size: 1.2rem;
+  margin: 0 0 1.5rem;
+  font-weight: normal;
+  color: #555;
+  font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 footer.footer {
@@ -28,7 +63,7 @@ footer.footer {
   height: 30px;
   margin: 0 auto 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
   font-size: 0.9rem;
@@ -46,22 +81,87 @@ footer.footer {
 #left-bar {
   background-color: red;
   text-align: left;
-  padding-left: 5px;
 }
 
 #right-bar {
   background-color: blue;
   text-align: right;
-  padding-right: 5px;
 }
 
-#left-percentage,
-#right-percentage {
+#left-percentage {
   position: absolute;
+  left: 5px;
   top: 50%;
   transform: translateY(-50%);
-  white-space: nowrap;
 }
+
+#right-percentage {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Seesaw Styles */
+#seesaw-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  height: 150px;
+  position: relative;
+}
+
+#seesaw {
+  width: 400px;
+  height: 10px;;
+  background-color: #444;
+  /* Seesaw plank */
+  position: relative;
+  transform-origin: center;
+  transform: rotate(0deg);
+  /* Tilt dynamically */
+  transition: transform 0.5s ease;
+  border-radius: 10px;
+}
+
+#left-weight,
+#right-weight {
+  width: 40px;
+  height: 40px;
+  background-color: #888;
+  position: absolute;
+  bottom: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 50%;
+}
+
+#left-weight {
+  left: 50px;
+}
+
+#right-weight {
+  right: 50px;
+}
+
+#seesaw-fulcrum {
+  width: 60px;
+  height: 50%;
+  background-color: var(--seesaw-color);
+  /* Triangle color */
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  /* Triangle shape */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
 
 /* Posts Section */
 #posts-container {
@@ -78,6 +178,11 @@ footer.footer {
   width: 50%;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid #ccc;
+}
+
+.posts-column:last-child {
+  border-right: none;
 }
 
 .posts-column h2 {
@@ -91,11 +196,21 @@ footer.footer {
 }
 
 #left-posts {
-  background-color: #ffecec;
+  background-color: var(--left-color-light, #ffecec);
 }
 
 #right-posts {
-  background-color: #e6f2ff;
+  background-color: var(--right-color-light, #e6f2ff);
+}
+
+.left-highlight {
+  color: var(--left-color);
+  font-weight: bold;
+}
+
+.right-highlight {
+  color: var(--right-color);
+  font-weight: bold;
 }
 
 .post {
@@ -104,9 +219,8 @@ footer.footer {
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid #ddd;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeIn 0.5s ease forwards;
+  word-wrap: break-word;
+  /* Wrap long text */
 }
 
 .post .meta {
@@ -119,14 +233,9 @@ footer.footer {
   font-size: 1rem;
 }
 
-.left-highlight {
-  color: red;
-  font-weight: bold;
-}
-
-.right-highlight {
+.post a {
   color: blue;
-  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* Animations */
@@ -135,4 +244,39 @@ footer.footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+
+
+
+/* iPhone-specific styles */
+@media screen and (max-width: 480px) {
+  /* body {
+    font-size: 14px;
+  }
+
+  #bar-container {
+    height: 15px;
+  }
+
+  #seesaw {
+    width: 200px;
+    height: 8px;
+  }
+
+  #left-weight,
+  #right-weight {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+
+  #posts-container {
+    height: 30%;
+  }
+
+  .post {
+    font-size: 0.75rem;
+  } */
 }

@@ -3,6 +3,43 @@ const JETSTREAM_URL = "wss://jetstream1.us-east.bsky.network/subscribe";
 let leftCount = 0;
 let rightCount = 0;
 
+
+
+function updateSeesaw() {
+  const total = leftCount + rightCount;
+  if (total === 0) return; // No posts, no tilt
+
+  const leftPercent = (leftCount / total) * 100; // Calculate left percentage
+  const tilt = (leftPercent - 50) * .45; // Convert percentage difference to tilt angle
+
+  const seesaw = document.getElementById("seesaw");
+  seesaw.style.transform = `rotate(${-tilt}deg)`; // Apply tilt angle
+}
+
+// Update the weights above the seesaw based on the balance
+function updateWeights() {
+  const total = leftCount + rightCount;
+  if (total === 0) return; // No posts, no weight movement
+
+  const leftWeight = document.getElementById("left-weight");
+  const rightWeight = document.getElementById("right-weight");
+
+  const leftPercent = (leftCount / total) * 100; // Calculate left percentage
+  const leftBottom = Math.max(0, (50 - leftPercent) * 2); // Adjust left weight height
+  const rightBottom = Math.max(0, (leftPercent - 50) * 2); // Adjust right weight height
+
+  leftWeight.style.bottom = `${leftBottom}%`;
+  rightWeight.style.bottom = `${rightBottom}%`;
+}
+
+function updateWeightCounts() {
+  const leftWeight = document.getElementById("left-weight");
+  const rightWeight = document.getElementById("right-weight");
+
+  leftWeight.textContent = leftCount; // Set the count for left weight
+  rightWeight.textContent = rightCount; // Set the count for right weight
+}
+
 // Update the bar graph
 function updateBarGraph() {
   const total = leftCount + rightCount;
@@ -63,6 +100,8 @@ function processPostEvent(record) {
 
   // Update the bar graph
   updateBarGraph();
+  updateSeesaw();
+  updateWeightsCounts();
 }
 
 // Connect to the WebSocket
