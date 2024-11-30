@@ -1,13 +1,13 @@
 :root {
-  --left-color: red;
+  --left-color: blue;
   /* Main color for "left" */
-  --right-color: blue;
+  --right-color: red;
   /* Main color for "right" */
-  --left-color-light: #ffecec;
+  --left-color-light: #e6f2ff;
   /* Lighter shade for left background */
-  --right-color-light: #e6f2ff;
+  --right-color-light: #ffecec;
   /* Lighter shade for right background */
-  --seesaw-color: #444;
+  --seesaw-color: #ddd;
   /* Color for the seesaw plank and fulcrum */
   --weight-color: #888;
   /* Color for weights */
@@ -19,7 +19,6 @@
 
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -39,8 +38,12 @@ h1.marquee-title {
 }
 
 h2.subtitle {
-  font-size: 1.2rem;
-  margin: 0 0 1.5rem;
+  font-size: .9rem;
+  max-width: 700px;
+  /* margin: 0 0 1.5rem; */
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 10px;
   font-weight: normal;
   color: #555;
   font-family: "Parkinsans", sans-serif;
@@ -79,12 +82,12 @@ footer.footer {
 }
 
 #left-bar {
-  background-color: red;
+  background-color: var(--left-color);
   text-align: left;
 }
 
 #right-bar {
-  background-color: blue;
+  background-color: var(--right-color);
   text-align: right;
 }
 
@@ -113,9 +116,9 @@ footer.footer {
 }
 
 #seesaw {
-  width: 400px;
+  width: 350px;
   height: 10px;;
-  background-color: #444;
+  background-color: var(--seesaw-color);
   /* Seesaw plank */
   position: relative;
   transform-origin: center;
@@ -149,8 +152,7 @@ footer.footer {
 }
 
 #seesaw-fulcrum {
-  width: 60px;
-  height: 50%;
+
   background-color: var(--seesaw-color);
   /* Triangle color */
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
@@ -159,6 +161,29 @@ footer.footer {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+
+#seesaw-fulcrum {
+  width: 90px;
+    height: 50%;
+  background-color: var(--seesaw-color);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#seesaw-fulcrum img {
+  width: 25%;
+  padding-top: 10px;;
+  /* Scale down the logo to fit */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
 

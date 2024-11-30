@@ -8,7 +8,24 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <title>Bluesky Lean Tracker</title>
+  
+  <!-- metas -->
 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+  
+  <link rel="canonical" href="https://www.avibagla.com/blueskylean" />
+  <meta name="description" content="Determine Bluesky's current left or right tilt!" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Determine Bluesky's current left or right tilt!" />
+  <meta property="og:url" content="https://www.avibagla.com/blueskylean" />
+  <meta property="og:description"
+    content="Determine Bluesky's current left or right tilt!" />
+  <meta property="og:image" content="https://www.avibagla.com/blueskylean/images/share.png" />
+  <!-- <link rel="stylesheet" href="https://use.typekit.net/vlb6wjj.css"> -->
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +36,8 @@
 
 <body>
   <h1 class="marquee-title">Bluesky Lean Tracker</h1>
-  <h2 class="subtitle">Everyone is trying to figure out which way Bluesky leans for media bias. Well, now you know how much it leans left or right at any given moment.</h2>
+  <h2 class="subtitle">People keep talking about how <span class="left-highlight">left</span>-leaning or <span class="right-highlight">right</span>-leaning Bluesky is. 
+    Well, I decided to put it to rest and show exactly HOW <span class="left-highlight">left</span> or <span class="right-highlight">right</span> leaning Bluesky is at any moment. </h2>
 
   <div id="bar-container">
     <div id="left-bar">
@@ -35,22 +53,24 @@
       <div id="left-weight">⬅️</div>
       <div id="right-weight">➡️</div>
     </div>
-    <div id="seesaw-fulcrum"></div>
+    <div id="seesaw-fulcrum">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bluesky_Logo.svg/1200px-Bluesky_Logo.svg.png" alt="">
+    </div>
   </div>
 
   <div id="posts-container">
     <div class="posts-column">
-      <h2>Left</h2>
+      <h2>Left Posts</h2>
       <div id="left-posts" class="posts-list"></div>
     </div>
     <div class="posts-column">
-      <h2>Right</h2>
+      <h2>Right Posts</h2>
       <div id="right-posts" class="posts-list"></div>
     </div>
   </div>
 
   <footer class="footer">
-    <p>made by <a href="//www.avibagla.com" target="_blank"> Avi Bagla</a></p>
+    <p>made by <a href="//www.avibagla.com" target="_blank"> Avi Bagla</a> </p>
   </footer>
 </body>
 

@@ -101,7 +101,7 @@ function processPostEvent(record) {
   // Update the bar graph
   updateBarGraph();
   updateSeesaw();
-  updateWeightsCounts();
+  // updateWeightsCounts();
 }
 
 // Connect to the WebSocket
